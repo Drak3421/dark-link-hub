@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<h1>🌑 DARK LINK HUB</h1>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#000000;
+    color:white;
+    min-height:100vh;
+}
+
+header{
+    text-align:center;
+    padding:40px 20px;
+}
+
+header h1{
+    font-size:3rem;
+    color:#ff0000;
+
+    text-shadow:
+    0 0 10px #ff0000,
+    0 0 20px #ff0000,
+    0 0 40px #ff0000;
+}
+
+header p{
+    color:#aaa;
+    margin-top:10px;
+}
+
+.search-box{
+    text-align:center;
+    margin:20px;
+}
+
+.search-box input{
+    width:80%;
+    max-width:500px;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+}
+
+.section{
+    padding:30px;
+}
+
+.section h2{
+    color:#ffcc00;
+    margin-bottom:20px;
+}
+
+.links{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#111111;
+    padding:20px;
+    border-radius:15px;
+    text-decoration:none;
+    color:white;
+    text-align:center;
+    transition:0.3s;
+
+    border:1px solid rgba(255,204,0,.2);
+}
+
+.card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 0 15px #ff0000,
+    0 0 30px #ff0000;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#888;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌐 MY LINK HUB</h1>
+    <p>All my favorite websites in one place</p>
+</header>
+
+<div class="search-box">
+    <input type="text" id="search" placeholder="Search websites...">
+</div>
+
+<div class="section">
+    <h2>🎬 Movies</h2>
+
+    <div class="links">
+        <a class="card" href="#" target="_blank">Movie Site 1</a>
+        <a class="card" href="#" target="_blank">Movie Site 2</a>
+        <a class="card" href="#" target="_blank">Movie Site 3</a>
+    </div>
+</div>
+
+<div class="section">
+    <h2>🍥 Anime</h2>
+
+    <div class="links">
+        <a class="card" href="#" target="_blank">Anime Site 1</a>
+        <a class="card" href="#" target="_blank">Anime Site 2</a>
+        <a class="card" href="#" target="_blank">Anime Site 3</a>
+    </div>
+</div>
+
+<div class="section">
+    <h2>🎮 Games</h2>
+
+    <div class="links">
+        <a class="card" href="#" target="_blank">Game Site 1</a>
+        <a class="card" href="#" target="_blank">Game Site 2</a>
+    </div>
+</div>
+
+<div class="section">
+    <h2>🛠️ Tools</h2>
+
+    <div class="links">
+        <a class="card" href="https://chatgpt.com" target="_blank">ChatGPT</a>
+        <a class="card" href="https://github.com" target="_blank">GitHub</a>
+        <a class="card" href="https://www.canva.com" target="_blank">Canva</a>
+    </div>
+</div>
+
+<footer>
+    © 2026 My Link Hub
+</footer>
+
+<script>
+const search = document.getElementById('search');
+
+search.addEventListener('keyup', () => {
+    const value = search.value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+
+        if(text.includes(value)){
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+});
+</script>
+
+</body>
+</html>
