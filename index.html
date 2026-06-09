@@ -90,20 +90,11 @@ header p{
     margin-bottom:20px;
 }
 
-.link{
-    display:block;
-    width:300px;
-    margin:20px auto;
-    padding:18px;
-
-    background:#181818;
-    color:white;
-
-    border:none;
-    border-radius:10px;
-
-    text-decoration:none;
-    transition:0.3s;
+.links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
 .link:hover{
@@ -137,6 +128,19 @@ header p{
     border-color:#555;
 }
 
+.card img{
+    width:180px;
+    height:260px;
+    object-fit:cover;
+    border-radius:12px;
+    display:block;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+    transition:0.3s;
+}
+
 footer{
     text-align:center;
     padding:30px;
@@ -166,7 +170,9 @@ Movies • Anime • Gaming • Streaming
     <h2>🎬 Movies</h2>
 
     <div class="links">
-        <a class="card" href="https://bollyflix.med" target="_blank">Bollyflix</a>
+        <a class="card" href="https://bollyflix.med" target="_blank">
+    <img src="bollyflix.jpg" alt="Bollyflix">
+</a>
         <a class="card" href="#" target="_blank">Movie Site 2</a>
         <a class="card" href="#" target="_blank">Movie Site 3</a>
     </div>
