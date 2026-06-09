@@ -12,21 +12,6 @@
     font-family:Arial,sans-serif;
 }
 
-#musicBtn{
-    background:#111;
-    color:white;
-    border:1px solid #444;
-    padding:12px 20px;
-    border-radius:10px;
-    cursor:pointer;
-    margin:20px;
-    font-size:16px;
-}
-
-#musicBtn:hover{
-    background:#222;
-}
-
 h1{
     color:#E50914;
     font-size:60px;
@@ -37,32 +22,11 @@ h1{
     margin-top:40px;
 }
 
-<script>
-const music = document.getElementById("bgMusic");
-const btn = document.getElementById("musicBtn");
-
-btn.addEventListener("click", () => {
-    if(music.paused){
-        music.play();
-        btn.innerHTML = "⏸ Pause Music";
-    } else {
-        music.pause();
-        btn.innerHTML = "🎵 Play Music";
-    }
-});
-</script>
-
 body{
     margin:0;
     font-family:Arial,sans-serif;
     color:white;
-    
-    <button id="musicBtn">🎵 Play Music</button>
 
-<audio id="bgMusic">
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
-    
     background:
     linear-gradient(
         rgba(0,0,0,0.8),
@@ -74,7 +38,7 @@ body{
     background-position:center;
     background-attachment:fixed;
 }
-    
+
 header{
     text-align:center;
     padding:40px 20px;
@@ -154,6 +118,7 @@ header p{
     padding:15px 25px;
     margin:10px;
     border-radius:12px;
+    transition:0.3s;
     transition:0.4s;
     border:1px solid #333;
 }
@@ -186,12 +151,16 @@ footer{
 
 <body>
 
-<h1>DARKFLIX</h1>
-<p>Movies • Anime • Gaming • Streaming</p>
+<h1 class="main-title">DARKFLIX</h1>
 
-<div class="search-box">
-    <input type="text" id="search" placeholder="Search websites...">
-</div>
+<p style="text-align:center;color:#ccc;font-size:18px;">
+Movies • Anime • Gaming • Streaming
+</p>
+
+<header>
+    <h1></h1>
+    <p>All my favorite websites in one place</p>
+</header>
 
 <div class="search-box">
     <input type="text" id="search" placeholder="Search websites...">
@@ -200,18 +169,18 @@ footer{
 <div class="section">
     <h2>🎬 Movies</h2>
 
+        <a class="card" href="https://bollyflix.med" target="_blank">Bollyflix</a>
         <a class="card" href="https://bollyflix.med">
     <img src="bollyflix.jpg">
 </a>
         <a class="card" href="#" target="_blank">Movie Site 2</a>
         <a class="card" href="#" target="_blank">Movie Site 3</a>
     </div>
-</div>
-
-<div class="section">
+@@ -166,53 +180,55 @@
     <h2>🍥 Anime</h2>
 
     <div class="links">
+        <a class="card" href="https://animetsu.net/" target="_blank">Animetetsu</a>
         <a class="card" href="https://animetsu.net/">
     <img src="animetsu.jpg">
 </a>
@@ -230,7 +199,7 @@ footer{
 </div>
 
 <div class="section">
-    <h2>⭐ Favorites</h2>
+    <h2>🛠️ Tools</h2>
 
     <div class="links">
         <a class="card" href="https://chatgpt.com" target="_blank">ChatGPT</a>
