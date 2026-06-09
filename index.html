@@ -118,7 +118,7 @@ header p{
     padding:15px 25px;
     margin:10px;
     border-radius:12px;
-    transition:0.3s;
+    transition:0.4s;
     border:1px solid #333;
 }
 
@@ -126,6 +126,18 @@ header p{
     transform:translateY(-5px);
     background:#222;
     border-color:#555;
+}
+
+.card{
+    overflow:hidden;
+}
+
+.card img{
+    transition:0.4s;
+}
+
+.card:hover img{
+    transform:scale(1.1);
 }
 
 footer{
@@ -156,7 +168,9 @@ Movies • Anime • Gaming • Streaming
 <div class="section">
     <h2>🎬 Movies</h2>
 
-        <a class="card" href="https://bollyflix.med" target="_blank">Bollyflix</a>
+        <a class="card" href="https://bollyflix.med">
+    <img src="bollyflix.jpg">
+</a>
         <a class="card" href="#" target="_blank">Movie Site 2</a>
         <a class="card" href="#" target="_blank">Movie Site 3</a>
     </div>
@@ -166,7 +180,9 @@ Movies • Anime • Gaming • Streaming
     <h2>🍥 Anime</h2>
 
     <div class="links">
-        <a class="card" href="https://animetsu.net/" target="_blank">Animetetsu</a>
+        <a class="card" href="https://animetsu.net/">
+    <img src="animetsu.jpg">
+</a>
         <a class="card" href="#" target="_blank">Anime Site 2</a>
         <a class="card" href="#" target="_blank">Anime Site 3</a>
     </div>
