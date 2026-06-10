@@ -12,6 +12,29 @@
     font-family:Arial,sans-serif;
 }
 
+.search-box{
+    position:relative;
+}
+
+.search-box::before{
+    content:"🔍";
+
+    position:absolute;
+
+    left:calc(50% - 310px);
+    top:50%;
+
+    transform:translateY(-50%);
+
+    z-index:5;
+
+    opacity:.6;
+}
+
+.search-box input{
+    padding-left:55px;
+}
+
 .online-badge{
     animation:pulse 2s infinite;
 }
@@ -320,6 +343,37 @@ header p{
         0 10px 40px rgba(0,0,0,.35);
 }
 
+.section{
+    position:relative;
+    transition:.4s ease;
+}
+
+.section::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    border-radius:25px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.08),
+        transparent 30%
+    );
+
+    pointer-events:none;
+}
+
+.section:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 0 30px rgba(255,255,255,.08),
+        0 0 60px rgba(229,9,20,.08);
+}
+    
 .section h2{
     color:#ffcc00;
     margin-bottom:20px;
@@ -376,6 +430,32 @@ header p{
     animation:glow 3s ease-in-out infinite alternate;
 }
 
+    .main-title{
+    position:relative;
+}
+
+.main-title::after{
+    content:"";
+
+    position:absolute;
+
+    bottom:-15px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:220px;
+    height:3px;
+
+    background:#E50914;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 0 20px #E50914,
+        0 0 40px #E50914;
+}
+
 @keyframes glow{
 
     from{
@@ -413,19 +493,48 @@ header p{
     transition:.35s ease;
 
     margin:10px;
+    position:relative;
+    overflow:hidden;
 }
 
 .card:hover{
     transform:
         translateY(-8px)
-        scale(1.03);
+        scale(1.05);
 
     border-color:#E50914;
 
     box-shadow:
-        0 0 30px rgba(229,9,20,.4);
+        0 0 35px rgba(229,9,20,.5);
 
     background:rgba(255,255,255,.08);
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:-120%;
+
+    width:60%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.12),
+        transparent
+    );
+
+    transform:skewX(-25deg);
+
+    transition:.8s;
+}
+
+.card:hover::before{
+    left:150%;
 }
 
 footer{
@@ -666,6 +775,6 @@ updateClock();
     <a href="https://discord.gg/YOURSERVER" target="_blank">🎮</a>
 </div> 
     <div class="online-badge">
-    🟢 ONLINE
+    ⚡ ACTIVE 24/7
 </div>
 </html>
