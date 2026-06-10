@@ -13,6 +13,35 @@
 }
 
 .online-badge{
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        box-shadow:0 0 0 0 rgba(0,255,100,.5);
+    }
+
+    100%{
+        box-shadow:0 0 0 15px rgba(0,255,100,0);
+    }
+
+}
+
+.trending{
+    text-align:center;
+
+    color:#ffcc00;
+
+    margin-top:15px;
+    margin-bottom:15px;
+
+    font-size:16px;
+
+    font-weight:bold;
+}
+
+.online-badge{
     position:fixed;
     top:20px;
     right:20px;
@@ -227,39 +256,48 @@ header p{
 
 .search-box input{
     width:80%;
-    max-width:550px;
+    max-width:650px;
 
-    padding:15px 20px;
+    padding:18px 25px;
 
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(15px);
 
     color:white;
 
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:15px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:20px;
 
     font-size:16px;
+
+    transition:.3s;
 }
 
-.search-box input::placeholder{
-    color:#bbb;
+.search-box input:focus{
+    outline:none;
+
+    border-color:#E50914;
+
+    box-shadow:
+        0 0 25px rgba(229,9,20,.3);
 }
 
 .section{
     max-width:1000px;
-    margin:60px auto;
+    margin:50px auto;
 
-    border-top:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.03);
+    backdrop-filter:blur(12px);
 
-    padding-top:50px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:25px;
+
+    padding:35px;
+
     text-align:center;
 
-    background:transparent !important;
-    backdrop-filter:none !important;
-
-    padding:25px;
-    border-radius:20px;
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.35);
 }
 
 .section h2{
@@ -289,38 +327,56 @@ header p{
         0 0 15px rgba(229,9,20,.7),
         0 0 30px rgba(229,9,20,.4);
 
-    animation:fadeIn 1s ease;
+    animation:glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow{
+
+    from{
+        text-shadow:
+            0 0 15px rgba(229,9,20,.7);
+    }
+
+    to{
+        text-shadow:
+            0 0 35px rgba(229,9,20,.9),
+            0 0 70px rgba(229,9,20,.5);
+    }
+
 }
 
 .card{
-    display:inline-block;
+    width:180px;
+    min-height:90px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
     background:rgba(255,255,255,.04);
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(15px);
 
     color:white;
     text-decoration:none;
 
-    padding:15px 25px;
-    margin:10px;
-
-    border-radius:15px;
+    border-radius:18px;
 
     border:1px solid rgba(255,255,255,.08);
 
-    transition:.3s ease;
+    transition:.35s ease;
 
-    overflow:hidden;
+    margin:10px;
 }
 
 .card:hover{
-    transform:translateY(-5px);
+    transform:
+        translateY(-8px)
+        scale(1.03);
 
     border-color:#E50914;
 
     box-shadow:
-        0 0 20px rgba(229,9,20,.3),
-        0 0 40px rgba(229,9,20,.15);
+        0 0 30px rgba(229,9,20,.4);
 
     background:rgba(255,255,255,.08);
 }
@@ -329,6 +385,28 @@ footer{
     text-align:center;
     padding:30px;
     color:#888;
+}
+
+@media(max-width:768px){
+
+    .main-title{
+        font-size:60px;
+        letter-spacing:4px;
+    }
+
+    .card{
+        width:140px;
+        min-height:80px;
+    }
+
+    .search-box input{
+        width:90%;
+    }
+
+    .socials{
+        left:10px;
+    }
+
 }
 </style>
 </head><link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -341,7 +419,12 @@ footer{
 Movies • Anime • Gaming • Streaming
 </p>
 
+<div class="trending">
+🔥 Trending: Spider-Noir • Dhurandhar • New Anime Updates
+</div>
+
 <header>
+
     <h1></h1>
     <p>All my favorite websites in one place</p>
 </header>
