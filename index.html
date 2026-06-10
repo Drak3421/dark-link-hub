@@ -151,27 +151,41 @@
     bottom:20px;
     right:20px;
 
-    background:linear-gradient(135deg,#E50914,#ff2d38);
+    display:flex;
+    align-items:center;
+    gap:12px;
 
-    color:white;
+    padding:18px 35px;
 
     border:none;
-    border-radius:50px;
+    border-radius:60px;
 
-    padding:14px 24px;
+    background:linear-gradient(
+        135deg,
+        #ff0015,
+        #ff2d38
+    );
 
-    font-weight:bold;
+    color:white;
+    font-size:20px;
+    font-weight:700;
 
     cursor:pointer;
 
-    box-shadow:
-        0 0 20px rgba(229,9,20,.5);
+    animation:
+        musicPulse 2s infinite,
+        floatMusic 3s ease-in-out infinite;
 
-    transition:.3s ease;
+    box-shadow:
+        0 0 25px rgba(229,9,20,.6);
+
+    transition:.3s;
+
+    z-index:999;
 }
 
 #musicBtn:hover{
-    transform:translateY(-3px);
+    transform:scale(1.05);
 }
 
 h1{
@@ -441,6 +455,71 @@ footer{
     }
 
 }
+.bars{
+    display:flex;
+    gap:4px;
+}
+
+.bars span{
+    width:4px;
+    height:16px;
+    background:white;
+    border-radius:10px;
+
+    animation:equalizer .8s infinite alternate;
+}
+
+.bars span:nth-child(2){
+    animation-delay:.2s;
+}
+
+.bars span:nth-child(3){
+    animation-delay:.4s;
+}
+
+@keyframes equalizer{
+
+    from{
+        height:8px;
+    }
+
+    to{
+        height:20px;
+    }
+
+}
+
+@keyframes musicPulse{
+
+    0%{
+        box-shadow:
+        0 0 20px rgba(229,9,20,.4);
+    }
+
+    50%{
+        box-shadow:
+        0 0 40px rgba(229,9,20,.9),
+        0 0 80px rgba(229,9,20,.4);
+    }
+
+    100%{
+        box-shadow:
+        0 0 20px rgba(229,9,20,.4);
+    }
+
+}
+
+@keyframes floatMusic{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+
+}
 </style>
 </head><link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 
@@ -469,12 +548,16 @@ Movies • Anime • Gaming • Streaming
 <div class="section">
     <h2>🎬 Movies</h2>
 
-        <a class="card" href="https://bollyflix.med" target="_blank">Bollyflix</a>
-        <a class="card" href="https://hicine.app/" target="_blank">Hicine</a>
-        <a class="card" href="https://www.cineby.at/" target="_blank">cineby</a>
-        <a class="card" href="https://flickystream.su/" target="_blank">flickystream</a>
-        <a class="card" href="https://lordflix.org/" target="_blank">Lordflix</a>
+    <div class="links">
+
+        <a class="card">Bollyflix</a>
+        <a class="card">Hicine</a>
+        <a class="card">cineby</a>
+        <a class="card">flickystream</a>
+        <a class="card">Lordflix</a>
+
     </div>
+</div>
 
 <div class="section">
     <h2>🍥 Anime</h2>
@@ -529,7 +612,15 @@ search.addEventListener('keyup', () => {
 });
 </script>
 
-<button id="musicBtn">🎵 Play Music</button>
+<button id="musicBtn">
+    <span class="bars">
+        <span></span>
+        <span></span>
+        <span></span>
+    </span>
+
+    <span id="musicText">Play Music</span>
+</button>
 
 <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
@@ -544,11 +635,13 @@ let playing = false;
 musicBtn.addEventListener("click", () => {
     if (!playing) {
         music.play();
-        musicBtn.innerHTML = "🔇 Pause Music";
+        document.getElementById("musicText").innerText =
+"Pause Music";
         playing = true;
     } else {
         music.pause();
-        musicBtn.innerHTML = "🎵 Play Music";
+        document.getElementById("musicText").innerText =
+"Play Music";
         playing = false;
     }
 });
