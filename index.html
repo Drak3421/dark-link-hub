@@ -12,52 +12,31 @@ A<!DOCTYPE html>
     font-family:Arial,sans-serif;
 }
 
-#music-player{
+#musicBtn{
     position:fixed;
     bottom:20px;
     right:20px;
 
-    width:280px;
-
-    background:rgba(0,0,0,.9);
-    backdrop-filter:blur(10px);
-
-    border:1px solid #E50914;
-    border-radius:15px;
-
-    padding:15px;
-
-    color:white;
-    text-align:center;
-
-    box-shadow:0 0 20px rgba(229,9,20,.4);
-}
-
-#song-name{
-    font-size:14px;
-    margin-bottom:10px;
-    color:#FFD700;
-    font-weight:bold;
-}
-
-.controls button{
     background:#E50914;
     color:white;
 
     border:none;
-    border-radius:50%;
+    border-radius:50px;
 
-    width:45px;
-    height:45px;
-
-    margin:0 5px;
+    padding:12px 20px;
+    font-size:14px;
+    font-weight:bold;
 
     cursor:pointer;
-    font-size:18px;
+
+    box-shadow:0 0 15px rgba(229,9,20,.5);
+
+    transition:.3s;
 }
 
-.controls button:hover{
-    transform:scale(1.1);
+#musicBtn:hover{
+    transform:scale(1.05);
+    background:#ff1a25;
 }
 
 h1{
@@ -160,6 +139,7 @@ header p{
 
 .card{
     display:inline-block;
+    background:#transparent;
     background:transparent;
     color:white;
     text-decoration:none;
@@ -202,7 +182,7 @@ footer{
 <h1 class="main-title">DARKFLIX</h1>
 
 <p style="text-align:center;color:#ccc;font-size:18px;">
-Movies • Anime • Streaming
+Movies • Anime • Gaming • Streaming
 </p>
 
 <header>
@@ -219,17 +199,15 @@ Movies • Anime • Streaming
 
         <a class="card" href="https://bollyflix.med" target="_blank">Bollyflix</a>
         <a class="card" href="https://hicine.app/" target="_blank">Hicine</a>
-        <a class="card" href="https://www.cineby.at/movie/931285?play=true" target="_blank">Cineby</a>
-        <a class="card" href="https://cinevibe.asia/" target="_blank">Cinevibe</a>
+        <a class="card" href="#" target="_blank">Movie Site 3 In Progress</a>
     </div>
-</div>
 
 <div class="section">
     <h2>🍥 Anime</h2>
 
     <div class="links">
         <a class="card" href="https://animetsu.net/" target="_blank">Animetetsu</a>
-        <a class="card" href="https://44anime.com/" target="_blank">44anime</a>
+        <a class="card" href="#" target="_blank">Anime Site 2 In Progress</a>
         <a class="card" href="#" target="_blank">Anime Site 3 In Progress</a>
     </div>
 </div>
@@ -275,84 +253,32 @@ search.addEventListener('keyup', () => {
         }
     });
 });
-<script>
-const songs = [
-    {
-        name: "My Favourite",
-        file: "favourite.mp3"
-    },
-    {
-        name: "Song 2",
-        file: "song2.mp3"
-    },
-    {
-        name: "Song 3",
-        file: "song3.mp3"
-    }
-];
-
-let currentSong = 0;
-
-const audio = document.getElementById("audio");
-const songName = document.getElementById("song-name");
-const playBtn = document.getElementById("play");
-
-function loadSong(index){
-    audio.src = songs[index].file;
-    songName.textContent = songs[index].name;
-}
-
-loadSong(currentSong);
-
-playBtn.addEventListener("click", () => {
-    if(audio.paused){
-        audio.play();
-        playBtn.textContent = "⏸";
-    } else {
-        audio.pause();
-        playBtn.textContent = "▶";
-    }
-});
-
-document.getElementById("next").addEventListener("click", () => {
-    currentSong++;
-    if(currentSong >= songs.length){
-        currentSong = 0;
-    }
-
-    loadSong(currentSong);
-    audio.play();
-    playBtn.textContent = "⏸";
-});
-
-document.getElementById("prev").addEventListener("click", () => {
-    currentSong--;
-
-    if(currentSong < 0){
-        currentSong = songs.length - 1;
-    }
-
-    loadSong(currentSong);
-    audio.play();
-    playBtn.textContent = "⏸";
-});
-
-audio.addEventListener("ended", () => {
-    document.getElementById("next").click();
-});
 </script>
 
-<div id="music-player">
-    <div id="song-name">No song playing</div>
+<button id="musicBtn">🎵 Play Music</button>
 
-    <div class="controls">
-        <button id="prev">⏮</button>
-        <button id="play">▶</button>
-        <button id="next">⏭</button>
-    </div>
-</div>
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-<audio id="audio"></audio>
+<script>
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+let playing = false;
+
+musicBtn.addEventListener("click", () => {
+    if (!playing) {
+        music.play();
+        musicBtn.innerHTML = "🔇 Pause Music";
+        playing = true;
+    } else {
+        music.pause();
+        musicBtn.innerHTML = "🎵 Play Music";
+        playing = false;
+    }
+});
+</script>
 
 </body>
 </html>
